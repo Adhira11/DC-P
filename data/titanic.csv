@@ -1,0 +1,15 @@
+import os
+import pandas as pd
+
+try:
+
+    df = pd.read_csv('data/titanic.csv')
+except FileNotFoundError:
+    df = pd.read_csv('https://raw.githubusercontent.com/your-username/your-repo/main/data/titanic.csv')
+from pathlib import Path
+
+data_path = Path('data/titanic.csv')
+if not data_path.exists():
+    data_path = 'https://raw.githubusercontent.com/your-username/your-repo/main/data/titanic.csv'
+
+df = pd.read_csv(data_path)
